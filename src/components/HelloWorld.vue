@@ -1,19 +1,31 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <button @click="count++">count is: {{ count }}</button>
-  <p>Edit <code>components/HelloWorld.vue</code> to test hot module replacement.</p>
+  <div class="alert alert-primary">
+    <h1>{{ data.title }}</h1>
+    <p class="mt-3 h5">{{ $store.state.message }}</p>
+    <hr />
+    <div
+      class="btn btn-secondary"
+      @click="$store.commit('count')"
+      @click.ctrl="$store.commit('reset')"
+    >
+      <a class="h5 text-white text-decoration-none"
+        >clicked:{{ $store.state.counter }}</a
+      >
+    </div>
+  </div>
 </template>
 
 <script>
+import { ref, reactive } from "vue";
+
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  },
-  data() {
+  setup(props) {
+    const data = reactive({
+      title: "Vuex",
+    });
     return {
-      count: 0
-    }
-  }
-}
+      data,
+    };
+  },
+};
 </script>
