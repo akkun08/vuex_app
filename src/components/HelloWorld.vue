@@ -3,7 +3,7 @@
     <h1>{{ data.title }}</h1>
     <p class="mt-3 h5">{{ $store.state.message }}</p>
     <hr />
-    <div class="btn-lg btn-dark" @click="$store.dispatch('doit')">
+    <div class="btn-lg btn-dark" @click="$store.commit('doit')">
       <a
         class="h5 text-white text-decoration-none"
         @click.stop="$store.commit('reset')"
