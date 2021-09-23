@@ -4,12 +4,16 @@
     <p class="mt-3 h5">{{ $store.state.message }}</p>
     <hr />
     <div
-      class="btn btn-secondary"
-      @click="$store.commit('count')"
-      @click.ctrl="$store.commit('reset')"
+      class="btn-lg btn-dark"
+      @click.exact="$store.commit('count', 1)"
+      @click.shift="$store.commit('count', 2)"
+      @click.ctrl="$store.commit('count', 3)"
     >
-      <a class="h5 text-white text-decoration-none"
-        >clicked:{{ $store.state.counter }}</a
+      <a
+        class="h5 text-white text-decoration-none"
+        @click.stop="$store.commit('reset')"
+      >
+        clicked:{{ $store.state.counter }}</a
       >
     </div>
   </div>
